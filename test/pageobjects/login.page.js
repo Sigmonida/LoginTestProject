@@ -9,6 +9,7 @@ class LoginPage extends Page {
     /**
      * define selectors using getter methods
      */
+    get loginButton() { return $('.new-login__login-button') }
     get inputUsername() { return $('#Email') }
     get inputPassword() { return $('#Password') }
     get btnSubmit() { return $('button[type="submit"]') }
@@ -17,11 +18,11 @@ class LoginPage extends Page {
  * a method to encapsule automation code to interact with the page
  * e.g. to login using username and password
  */
-    login(username, password) {
-        this.inputUsername.setValue(username);
-        this.inputPassword.setValue(password);
-        console.log(this.inputUsername.getValue());
-        this.btnSubmit.click();
+    async login(username, password) {
+        await this.loginButton.click();
+        await this.inputUsername.setValue(username);
+        await this.inputPassword.setValue(password);
+        await this.btnSubmit.click();
 
     }
 

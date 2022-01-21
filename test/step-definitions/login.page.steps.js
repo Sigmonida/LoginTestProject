@@ -30,11 +30,9 @@ Given('I am on the emprising login page', function () {
 //   }
 // });
 
-When('I login with username and password {string} {string} as {string}', function (user, pass, typeOfUser) {
-  browser.debug();
-  loginPage.login(user, pass);
+When('I login with username and password {string} {string} as {string}', async function (user, pass, typeOfUser) {
+      await loginPage.login(user, pass);
   
-
 });
 
 Then('I should land on 4-box dashboard', function () {
