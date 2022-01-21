@@ -20,7 +20,9 @@ class LoginPage extends Page {
     login(username, password) {
         this.inputUsername.setValue(username);
         this.inputPassword.setValue(password);
+        console.log(this.inputUsername.getValue());
         this.btnSubmit.click();
+
     }
 
     /**
