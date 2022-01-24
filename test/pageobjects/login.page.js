@@ -13,22 +13,17 @@ class LoginPage extends Page {
     get inputUsername() { return $('#Email') }
     get inputPassword() { return $('#Password') }
     get btnSubmit() { return $('button[type="submit"]') }
-    //get randomName() {return shortName()}
-    /**
- * a method to encapsule automation code to interact with the page
- * e.g. to login using username and password
- */
-    async login(username, password) {
-        await this.loginButton.click();
-        await this.inputUsername.setValue(username);
-        await this.inputPassword.setValue(password);
-        await this.btnSubmit.click();
+    get errorMessage() { return $('.validation-summary-errors li') }
+    get emailErrorMessage() { return $('#Email-error') }
 
+    login(username, password) {
+        this.loginButton.waitForClickable({ timeout: 60000 });
+        this.loginButton.click();
+        this.inputUsername.setValue(username);
+        this.inputPassword.setValue(password);
+        this.btnSubmit.click();
     }
 
-    /**
-     * overwrite specifc options to adapt it to page object
-     */
     open() {
         return super.open('login');
     }
