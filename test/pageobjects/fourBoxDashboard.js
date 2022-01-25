@@ -6,4 +6,5 @@ class fourBoxDashboard extends Page {
   get addNewSurveyButton() { return $('.pd-create-survey-btn'); }
 
 }
+
 module.exports = new fourBoxDashboard();

@@ -2,8 +2,9 @@ Feature: Login page
 
     Feature Description
 
-    Login as a HR Admin with correct and incorrect login credentials. Check to see if you get logged in or if you get correct error message.
-
+    Try to login as a HR Admin or as a Manager with correct and incorrect login credentials. 
+    Check to see if you get logged in or if you get correct error message.
+    
     Scenario: Login as HR Admin, happy path
         #UI
         Given I am on the emprising login page

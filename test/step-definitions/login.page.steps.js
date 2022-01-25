@@ -32,11 +32,11 @@ Then('I should get an error message', function () {
 
 Then('The error message should say: {string}', function (message) {
   return expect(loginPage.errorMessage.getText()).to.have.string(message);
-})
+});
 
 Then('I should get an email error message: {string}', function (message) {
   return expect(loginPage.emailErrorMessage.getText()).to.have.string(message);
-})
+});
 
 Then('I should land on overview results page', function () {
   return expect(overviewResultsPage.overviewResultsHeader.waitForDisplayed({ timeout: 60000 }));
