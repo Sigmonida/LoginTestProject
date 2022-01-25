@@ -232,8 +232,10 @@ exports.config = {
      * @param {ITestCaseHookParameter} world    world object containing information on pickle and test step
      * @param {Object}                 context  Cucumber World object
      */
-    // beforeScenario: function (world, context) {
-    // },
+     beforeScenario: function () {
+        browser.reloadSession();
+        browser.refresh();
+    },
     /**
      *
      * Runs before a Cucumber Step.

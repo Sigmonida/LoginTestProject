@@ -37,4 +37,35 @@ Feature: Login page
         When I login with username and password "visnjap06#gmail.com" "Su8um!ga" as "HR ADMIN"
         Then I should get an email error message: "The Email field is not a valid e-mail address."
 
+    Scenario: Login as Manager, happy path
+        #UI
+        Given I am on the emprising login page
+        When I login with username and password "visnjap06+login@gmail.com" "Su8um!ga" as "MANAGER"
+        Then I should land on overview results page
 
+    Scenario: Try to login as Manager with correct username and incorrect password
+        #UI
+        Given I am on the emprising login page
+        When I login with username and password "visnjap06+login@gmail.com" "lalala" as "MANAGER"
+        Then I should get an error message
+        And The error message should say: "We do not recognize your email and/or password."
+
+    Scenario: Try to login as Manager with incorrect username and correct password
+        #UI
+        Given I am on the emprising login page
+        When I login with username and password "visnjap06+log@gmail.com" "Su8um!ga" as "MANAGER"
+        Then I should get an error message
+        And The error message should say: "We do not recognize your email and/or password."
+
+    Scenario: Try to login as Manager with incorrect username and incorrect password
+        #UI
+        Given I am on the emprising login page
+        When I login with username and password "visnjap06+log@gmail.com" "lalala" as "MANAGER"
+        Then I should get an error message
+        And The error message should say: "We do not recognize your email and/or password."
+
+    Scenario: Try to login as Manager with incorrectly inputed mail and correct password
+        #UI
+        Given I am on the emprising login page
+        When I login with username and password "visnjap06#gmail.com" "Su8um!ga" as "MANAGER"
+        Then I should get an email error message: "The Email field is not a valid e-mail address."

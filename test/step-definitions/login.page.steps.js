@@ -6,6 +6,7 @@ const loginPage = require('../pageobjects/login.page');
 const fourBoxDashboard = require('../pageobjects/fourBoxDashboard');
 const troubleLoggingIn = require('../pageobjects/troubleLoggingIn');
 const { login } = require('../pageobjects/login.page');
+const overviewResultsPage = require('../pageobjects/overviewResultsPage');
 
 
 Given('I am on the emprising login page', function () {
@@ -33,6 +34,10 @@ Then('The error message should say: {string}', function (message) {
   return expect(loginPage.errorMessage.getText()).to.have.string(message);
 })
 
-Then('I should get an email error message: {string}', function(message) {
+Then('I should get an email error message: {string}', function (message) {
   return expect(loginPage.emailErrorMessage.getText()).to.have.string(message);
 })
+
+Then('I should land on overview results page', function () {
+  return expect(overviewResultsPage.overviewResultsHeader.waitForDisplayed({ timeout: 60000 }));
+});
