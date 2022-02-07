@@ -20,9 +20,6 @@ exports.config = {
     // then the current working directory is where your `package.json` resides, so `wdio`
     // will be called from there.
     //
-    before: function (capabilities, specs) {
-        browser.setWindowSize(1920, 1080)
-    },
     specs: [
         './test/features/**/*.feature'
     ],
@@ -235,6 +232,7 @@ exports.config = {
      beforeScenario: function () {
         browser.reloadSession();
         browser.refresh();
+        browser.setWindowSize(1920, 1080)
     },
     /**
      *

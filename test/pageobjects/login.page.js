@@ -15,8 +15,9 @@ class LoginPage extends Page {
     get btnSubmit() { return $('button[type="submit"]') }
     get errorMessage() { return $('.validation-summary-errors li') }
     get emailErrorMessage() { return $('#Email-error') }
+    get tryAgainButton() { return $('.trouble-logging-in .btn')}
 
-    login(username, password) {
+ login(username, password) {
         this.loginButton.waitForClickable({ timeout: 60000 });
         this.loginButton.click();
         this.inputUsername.setValue(username);
